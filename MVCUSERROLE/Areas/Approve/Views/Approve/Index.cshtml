@@ -1,0 +1,119 @@
+﻿@model IEnumerable<MVCUSERROLE.Models.RequisitionMaster>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequisitionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Typeofvechicle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numberofvechicle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fromdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Todate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reportdateofvechicle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reporttimeofvechicle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Place)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Purpose)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplierName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.referencedetails)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequisitionID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Typeofvechicle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numberofvechicle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fromdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Todate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reportdateofvechicle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reporttimeofvechicle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Place)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Purpose)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplierName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.referencedetails)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+
+        <td>
+
+            @Html.ActionLink("Approve", "Approve", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Decline", "Decline", new { /* id=item.PrimaryKey */ })
+
+        </td>
+    </tr>
+}
+
+</table>

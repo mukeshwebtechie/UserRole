@@ -1,0 +1,123 @@
+﻿@model MVCUSERROLE.Models.Request
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RequisitionMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Typeofvechicle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Typeofvechicle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numberofvechicle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numberofvechicle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fromdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fromdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Todate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Todate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reportdateofvechicle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reportdateofvechicle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reporttimeofvechicle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reporttimeofvechicle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Place)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Place)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purpose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purpose)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplierName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.referencedetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.referencedetails)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RequisitionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

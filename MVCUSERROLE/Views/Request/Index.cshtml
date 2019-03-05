@@ -1,0 +1,184 @@
+﻿@model IEnumerable<MVCUSERROLE.Models.VehicleRequisition>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequisitionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Typeofvechicle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numberofvechicle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fromdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Todate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reportdateofvechicle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reporttimeofvechicle)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Place)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserAddress)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Purpose)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ApplierName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.referencedetails)
+        </th>*@
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequisitionID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Typeofvechicle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numberofvechicle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fromdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Todate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reportdateofvechicle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reporttimeofvechicle)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Place)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserAddress)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Purpose)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ApplierName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.referencedetails)
+            </td>*@
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>*@
+
+            <td>
+                @if (Session["Role"].ToString() == "Admin")
+                {
+
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        Proceed
+                    </button>
+
+
+                        @Html.ActionLink("Approve", "Approve", new { /* id=item.PrimaryKey */ })
+                        @Html.ActionLink("Decline", "Decline", new { /* id=item.PrimaryKey */ })
+                        }
+                        else if (Session["Role"].ToString() == "User")
+                        {
+                        @Html.ActionLink("Modify", "Approve", new { /* id=item.PrimaryKey */ }) 
+                        @Html.ActionLink("Cancel", "Decline", new { /* id=item.PrimaryKey */ }, new { onclick = "return confirm('Are you sure you wish to delete this article?');" })
+                        }
+
+</td>
+        </tr>
+    }
+
+</table>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container">
+                   
+                    @*<form action="/action_page.php">*@
+
+                    <div class="form-group">
+                        <label for="comment">Choose Action</label>
+                        <select class="form-control"  id="act" name="act">
+                            <option>Approve</option>
+                            <option>Decline</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Choose Vendor</label>
+                        <select class="form-control" id="vendor" name="vendor">
+                            <option>Vendor1</option>
+                            <option>Vendor2</option>
+                        </select>
+                    </div>
+
+                        <div class="form-group">
+                            <label for="comment">Comment:</label>
+                            <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    @*</form>*@
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
